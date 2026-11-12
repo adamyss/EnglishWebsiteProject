@@ -1,0 +1,447 @@
+:root {
+    --faction-abnegation: #c9b69b;
+    --faction-erudite: #1687c4;
+    --faction-dauntless: #f2c739;
+    --faction-amity: #ed4b08;
+    --faction-candor: #45413c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f5f5f7;
+    color: #24232b;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: min(100% - 32px, 760px);
+    margin: 48px auto 80px;
+}
+
+#info {
+    margin-bottom: 20px;
+    color: #050505;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.factions-section {
+    margin-bottom: 32px;
+}
+
+.factions-section > h1 {
+    margin: 0 0 16px;
+    font-size: clamp(24px, 5vw, 32px);
+}
+
+.faction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    column-gap: 16px;
+    row-gap: 30px;
+}
+
+.divergent-card {
+    padding: 20px;
+    background: #000;
+    box-shadow: 0 3px 12px rgb(34 31 43 / 7%);
+}
+
+.faction-card {
+    padding: 20px;
+    background: #000;
+    box-shadow: 0 3px 12px rgb(34 31 43 / 7%);
+    color: #fff;
+}
+
+.faction-card.faction-abnegation,
+.faction-card.faction-dauntless {
+    color: #24232b;
+}
+
+.faction-abnegation {
+    --faction-color: var(--faction-abnegation);
+}
+
+.faction-erudite {
+    --faction-color: var(--faction-erudite);
+}
+
+.faction-dauntless {
+    --faction-color: var(--faction-dauntless);
+}
+
+.faction-amity {
+    --faction-color: var(--faction-amity);
+}
+
+.faction-candor {
+    --faction-color: var(--faction-candor);
+}
+
+.faction-card h2,
+.divergent-card h2 {
+    margin: 0 0 14px;
+    padding: 14px;
+    font-size: 22px;
+}
+
+.faction-card h2 {
+    background: var(--faction-color);
+    color: inherit;
+}
+
+.divergent-card h2 {
+    background: linear-gradient(
+        110deg,
+        var(--faction-abnegation),
+        var(--faction-erudite),
+        var(--faction-dauntless),
+        var(--faction-amity),
+        var(--faction-candor)
+    );
+    color: #fff;
+}
+
+.faction-image,
+.divergent-image {
+    display: grid;
+    min-height: 150px;
+    place-items: center;
+    color: #24232b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.faction-image {
+    background: #fff;
+    border: 1px solid #000;
+}
+
+.faction-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.faction-card p,
+.divergent-card p {
+    margin: 14px 0 0;
+    padding: 14px;
+    color: inherit;
+    line-height: 1.5;
+}
+
+.faction-card p {
+    background: var(--faction-color);
+}
+
+.faction-card.faction-abnegation p,
+.faction-card.faction-dauntless p {
+    color: #24232b;
+}
+
+.divergent-card p {
+    background: linear-gradient(
+        110deg,
+        var(--faction-abnegation),
+        var(--faction-erudite),
+        var(--faction-dauntless),
+        var(--faction-amity),
+        var(--faction-candor)
+    );
+    color: #fff;
+}
+
+.divergent-card {
+    margin-top: 20px;
+}
+
+.divergent-image {
+    background: linear-gradient(
+        110deg,
+        var(--faction-abnegation),
+        var(--faction-erudite),
+        var(--faction-dauntless),
+        var(--faction-amity),
+        var(--faction-candor)
+    );
+    color: #fff;
+    text-shadow: 0 1px 3px #000;
+}
+
+#take-quiz {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border: 0;
+    border-radius: 0;
+    background: #a64b35;
+    box-shadow: 0 4px 0 #63301f;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 800;
+    transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+#take-quiz:hover {
+    transform: translateY(-2px);
+    background: #853c2c;
+    box-shadow: 0 6px 0 #63301f;
+}
+
+#take-quiz:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #63301f;
+}
+
+#take-quiz:focus-visible,
+.answer-option:focus-visible {
+    outline: 3px solid #292735;
+    outline-offset: 3px;
+}
+
+#trivia {
+    margin-top: 42px;
+}
+
+#trivia[hidden] {
+    display: none;
+}
+
+.quiz-header {
+    margin-bottom: 22px;
+    padding: 30px 32px 26px;
+    border-radius: 0;
+    background: #292735;
+    color: #fff;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: #d99572;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.quiz-header h1 {
+    margin: 0;
+    font-size: clamp(30px, 6vw, 46px);
+    line-height: 1.08;
+}
+
+.quiz-header > p:not(.eyebrow) {
+    margin: 12px 0 24px;
+    color: #dedde4;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #dedde4;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.progress-track {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 0;
+    background: #494753;
+}
+
+.progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: 0;
+    background: #d99572;
+    transition: width 240ms ease;
+}
+
+.question-card {
+    margin: 18px 0;
+    padding: 26px 30px 30px;
+    border: 1px solid #e8e7eb;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 0 3px 12px rgb(34 31 43 / 5%);
+}
+
+.question-card.faction-abnegation,
+.question-card.faction-erudite,
+.question-card.faction-dauntless,
+.question-card.faction-amity,
+.question-card.faction-candor {
+    --answer-highlight: color-mix(in srgb, var(--faction-color) 20%, white);
+    --number-background: color-mix(in srgb, var(--faction-color) 70%, black);
+    border-color: var(--faction-color);
+    background: var(--faction-color);
+    color: #fff;
+}
+
+.question-card.faction-abnegation,
+.question-card.faction-dauntless {
+    color: #24232b;
+}
+
+.question-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 0 0 20px;
+    font-size: 21px;
+    line-height: 1.35;
+}
+
+.question-number {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border-radius: 0;
+    background: var(--number-background, #a64b35);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.answer-list {
+    display: grid;
+    gap: 10px;
+}
+
+.answer-option {
+    width: 100%;
+    padding: 14px 17px;
+    border: 2px solid #e8e7eb;
+    border-radius: 0;
+    background: #fff;
+    color: #292735;
+    cursor: pointer;
+    font: inherit;
+    font-size: 15px;
+    text-align: left;
+    transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.answer-option:not(:disabled):hover {
+    border-color: var(--answer-highlight, #a64b35);
+    background: var(--answer-highlight, #f1ddd4);
+    color: #292735;
+}
+
+.answer-option.selected {
+    border-color: var(--answer-highlight, #a64b35);
+    background: var(--answer-highlight, #f1ddd4);
+    color: #292735;
+    font-weight: 700;
+}
+
+.answer-option:disabled:not(.selected) {
+    color: #9997a0;
+    cursor: default;
+}
+
+.results-card {
+    display: none;
+    margin-top: 24px;
+    padding: 30px;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 0 3px 12px rgb(34 31 43 / 7%);
+}
+
+.results-card.is-visible {
+    display: block;
+    animation: result-appear 300ms ease both;
+}
+
+.results-card h2 {
+    margin: 0 0 24px;
+    font-size: clamp(26px, 5vw, 36px);
+}
+
+.results-card h2 span {
+    color: #a64b35;
+}
+
+.score-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.score-list p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0;
+    padding: 13px 15px;
+    border-radius: 0;
+    background: #f5f5f7;
+    font-size: 14px;
+}
+
+.score-list strong {
+    color: #a64b35;
+}
+
+@keyframes result-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 520px) {
+    main {
+        width: min(100% - 24px, 760px);
+        margin-top: 32px;
+    }
+
+    .quiz-header,
+    .question-card,
+    .results-card {
+        padding: 22px 18px;
+    }
+
+    .faction-card,
+    .divergent-card {
+        padding: 16px;
+    }
+    .question-title {
+        gap: 10px;
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
